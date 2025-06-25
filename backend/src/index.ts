@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { connectDatabase } from "./config/database";
 import serviceRoutes from "./routes/serviceRoutes";
+import tagRoutes from "./routes/tagRoutes";
 
 dotenv.config();
 
@@ -63,7 +64,6 @@ app.use(
     });
   }
 );
-
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Server is running on port ${PORT}`);
