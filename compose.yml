@@ -28,7 +28,7 @@ services:
       - database
 
   database:
-    container_name: database
+    container_name: database_hackathon
     image: mongo
     ports:
       - "27017:27017"

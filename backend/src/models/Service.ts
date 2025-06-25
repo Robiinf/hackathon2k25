@@ -55,7 +55,7 @@ const ServiceSchema: Schema = new Schema(
     },
     outputJSON: {
       type: Object,
-      required: true,
+      required: false,
     },
   },
   {
