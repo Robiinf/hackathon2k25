@@ -2,11 +2,15 @@ import * as VueRouter from 'vue-router';
 import LoginPage from '../pages/authentication/LoginPage.vue';
 import RegisterPage from '../pages/authentication/RegisterPage.vue';
 import HomePage from '../pages/HomePage.vue';
+import WorkflowPage from '../pages/WorkflowPage.vue';
 
 const routes = [
     { path: '/', component: HomePage },
     { path: '/register', component: RegisterPage },
     { path: '/login', component: LoginPage },
+    {
+        path: "/workflow", component: WorkflowPage
+    }
 ]
 
 const router = VueRouter.createRouter({

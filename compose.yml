@@ -1,16 +1,16 @@
 services:
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: frontend
-    ports:
-      - "5173:5173"
-    volumes:
-      - ./frontend/src:/app/src
-      - ./frontend/public:/app/public
-    depends_on:
-      - backend
+  #frontend:
+  #  build:
+  #    context: ./frontend
+  #    dockerfile: Dockerfile
+  #  container_name: frontend
+  #  ports:
+  #    - "5173:5173"
+  #  volumes:
+  #    - ./frontend/src:/app/src
+  #    - ./frontend/public:/app/public
+  #  depends_on:
+  #    - backend
 
   backend:
     build:
