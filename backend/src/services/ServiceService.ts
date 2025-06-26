@@ -65,7 +65,7 @@ export class ServiceService {
     return await this.serviceRepository.findByTags(tags);
   }
 
-  async getServicesByTagsWithMatchPercentage(tags: string[]): Promise<any[]> {
+  async getServicesByTagsWithMatchPercentage(tags: string[]): Promise<IService[]> {
     if (!tags || tags.length === 0) {
       throw new Error("Au moins un tag doit être fourni");
     }

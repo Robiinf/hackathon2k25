@@ -3,62 +3,56 @@ import { ref } from 'vue'
 import type { Node, Edge } from '@vue-flow/core'
 import { VueFlow } from '@vue-flow/core'
 
-import SpecialNode  from "./SpecialNode.vue";
+import ServiceNode  from "./ServiceNode.vue";
 
-const workflow = [
+const workflow =  [
         {
+            "jobTitle": "Rédaction invitation mariage français",
             "order": 1,
             "tags": [
                 "rédaction",
                 "contenu"
             ],
-            "type": "services",
-            "prompt": "Rédige une invitation de mariage en français pour un mariage qui aura lieu à Paris le 26 juin 2026. Sois créatif et élégant."
+            "prompt": "Rédiger un texte d'invitation de mariage en français, l'événement se déroulera à Paris le 26 juin 2026."
         },
         {
+            "jobTitle": "Traduction invitation anglais",
             "order": 2,
             "tags": [
                 "traducteur",
-                "langues"
+                "langues",
+                "IA"
             ],
-            "type": "services",
-            "params": {
-                "langue_cible": "anglais"
-            },
-            "prompt": "Traduis l'invitation de mariage suivante en anglais : [texte_invitation_francaise]."
+            "prompt": "Traduire le texte d'invitation de mariage en anglais."
         },
         {
+            "jobTitle": "Traduction invitation espagnol",
             "order": 2,
             "tags": [
                 "traducteur",
-                "langues"
+                "langues",
+                "IA"
             ],
-            "type": "services",
-            "params": {
-                "langue_cible": "espagnol"
-            },
-            "prompt": "Traduis l'invitation de mariage suivante en espagnol : [texte_invitation_francaise]."
+            "prompt": "Traduire le texte d'invitation de mariage en espagnol."
         },
         {
+            "jobTitle": "Traduction invitation japonais",
             "order": 2,
             "tags": [
                 "traducteur",
-                "langues"
+                "langues",
+                "IA"
             ],
-            "type": "services",
-            "params": {
-                "langue_cible": "japonais"
-            },
-            "prompt": "Traduis l'invitation de mariage suivante en japonais : [texte_invitation_francaise]."
+            "prompt": "Traduire le texte d'invitation de mariage en japonais."
         },
         {
+            "jobTitle": "Design des invitations",
             "order": 3,
             "tags": [
                 "design",
                 "image"
             ],
-            "type": "services",
-            "prompt": "Crée un design d'invitation de mariage élégant et moderne en utilisant les textes suivants : [texte_invitation_francaise], [texte_invitation_anglaise], [texte_invitation_espagnole], [texte_invitation_japonaise].  Assure-toi que le design est approprié pour un mariage à Paris."
+            "prompt": "Créer un design d'invitation de mariage élégant et festif, en utilisant les textes traduits dans les 4 langues."
         }
     ]
 
@@ -75,14 +69,14 @@ const orderLevels = Object.keys(groupedByOrder)
 const nodes = ref<Node[]>([])
 const edges = ref<Edge[]>([])
 
-const xGap = 250
+const xGap = 350
 const yGap = 180
 
 orderLevels.forEach((order, levelIndex) => {
   const steps = groupedByOrder[order]
 
-  steps.forEach((step, stepIndex) => {
-    const id = `${step.index + 1}`
+  steps.forEach((service, stepIndex) => {
+    const id = `${service.index + 1}`
 
     // Determine type
     let nodeType: 'input' | 'output' | 'default' = 'default'
@@ -91,24 +85,25 @@ orderLevels.forEach((order, levelIndex) => {
 
     nodes.value.push({
       id,
-      type:'custom',
+      type:'serviceNode',
       position: {
         x: levelIndex * xGap,
         y: stepIndex * yGap
       },
       data: {
-        label: `${order}. ${step.job}`
+        nodeType,
+        service
       }
     })
 
     // Generate edges from previous level (left to right)
     if (levelIndex > 0) {
-      const prevSteps = groupedByOrder[orderLevels[levelIndex - 1]]
-      prevSteps.forEach((prevStep) => {
+      const prevServices = groupedByOrder[orderLevels[levelIndex - 1]]
+      prevServices.forEach((prevService) => {
         edges.value.push({
-          id: `e${prevStep.index + 1}->${step.index + 1}`,
-          source: `${prevStep.index + 1}`,
-          target: `${step.index + 1}`,
+          id: `e${prevService.index + 1}->${service.index + 1}`,
+          source: `${prevService.index + 1}`,
+          target: `${service.index + 1}`,
           animated: true
         })
       })
@@ -125,7 +120,7 @@ orderLevels.forEach((order, levelIndex) => {
     height: '1000px',
   }">
     <VueFlow :nodes="nodes" :edges="edges" :node-types="{
-      custom: SpecialNode
+      serviceNode: ServiceNode
     }"
     />
   </div>

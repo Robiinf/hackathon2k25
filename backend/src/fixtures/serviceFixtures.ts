@@ -1,4 +1,4 @@
-import {Service, ServiceType} from '../models/Service';
+import {IService, Service, ServiceType} from '../models/Service';
 
 const services = [
     {
@@ -13,6 +13,10 @@ const services = [
         "developpeur"
       ],
       note: [5, 4, 5, 3, 4, 5, 4, 5, 4, 5],
+      inputJSON : {
+        source : "string",
+        target : "string"
+      }
     },
     {
       type: ServiceType.SERVICES,
@@ -23,6 +27,10 @@ const services = [
         "langue",
       ],
       note: [5, 4, 3, 5, 4, 4, 5, 4, 3, 5],
+      inputJSON : {
+        source : "string",
+        target : "string"
+      }
     },
     {
         type: ServiceType.SERVICES,
@@ -33,6 +41,23 @@ const services = [
             "génération",
         ],
         note: [4, 5, 4, 5, 3, 4, 5, 4, 5, 4],
+        inputJSON: {
+            source : "string",
+            target : "string"
+        }
+    },
+    {
+        type: ServiceType.SERVICES,
+        name: "Génération d'images",
+        description: "Création d'images à partir de descriptions textuelles",
+        tags: [
+            "image",
+            "génération",
+        ],
+        note: [4, 5, 4, 5, 3, 4, 5, 4, 5, 4],
+        inputJSON: {
+            promptStyle : "string",
+        }
     },
     {
         type : ServiceType.PROVIDER,
@@ -44,6 +69,8 @@ const services = [
             "consultant",
         ],
         note: [5, 3, 4, 5, 4, 5, 4, 3, 5, 4],
+        inputJSON : {
+        }
     },
     {
         type: ServiceType.SERVICES,
@@ -56,6 +83,9 @@ const services = [
             "ui/ux"
         ],
         note: [4, 5, 4, 3, 5, 4, 5, 4, 5, 4],
+        inputJSON : {
+            promptStyle : "string",
+        }
     },
     {
         type: ServiceType.PROVIDER,
@@ -69,6 +99,7 @@ const services = [
             "interface",
         ],
         note: [5, 4, 5, 4, 3, 5, 4, 5, 4, 5],
+        inputJSON : {}
     },
     {
         type: ServiceType.SERVICES,
@@ -81,6 +112,9 @@ const services = [
             "contenu"
         ],
         note: [4, 3, 5, 4, 5, 4, 3, 5, 4, 5],
+        inputJSON : {
+            promptStyle : "string",
+        }
     },
     {
         type: ServiceType.SERVICES,
@@ -92,6 +126,9 @@ const services = [
             "génération"
         ],
         note: [5, 4, 3, 5, 4, 5, 4, 3, 5, 4],
+        inputJSON: {
+            promptStyle: "string",
+        }
     },
     {
         type: ServiceType.PROVIDER,
@@ -104,6 +141,7 @@ const services = [
             "développement"
         ],
         note: [4, 5, 4, 3, 5, 4, 5, 4, 5, 3],
+        inputJSON : {}
     },
     {
         type: ServiceType.PROVIDER,
@@ -116,6 +154,7 @@ const services = [
             "professionnel"
         ],
         note: [5, 4, 3, 5, 4, 5, 4, 5, 3, 4],
+        inputJSON : {}
     }
 ]
 
