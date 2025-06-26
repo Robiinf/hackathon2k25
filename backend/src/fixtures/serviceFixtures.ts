@@ -1,20 +1,18 @@
 import { Service, ServiceType } from '../models/Service';
 
-
-// @TODO : Remplacer INPUTJSON par un tableau avec : {label: "Exemple", type: "string", placeholder: ""}
-// Pour le traducteur il faut un select avec un tableau : ['FR', 'EN', 'ES', 'DE', 'IT'...]
-
 const services = [
     {
         type: ServiceType.PROVIDER,
         name: `Développeur javascript`,
         description: `Je code`,
         tags: [
-            "javascript",
-            "nodejs",
-            "react",
-            "express",
-            "developpeur"
+            "Javascript",
+            "Nodejs",
+            "React",
+            "Express",
+            "Developpeur"
+            "Clean-architecture"
+            "Clean-code"
         ],
         note: [5, 4, 5, 3, 4, 5, 4, 5, 4, 5],
         inputJSON: [],
@@ -24,8 +22,11 @@ const services = [
         name: `Traducteur`,
         description: `Traduction de texte en toutes langues`,
         tags: [
-            "traducteur",
-            "langue"
+            "Traducteur"
+            "Langue"
+            "Traduction"
+            "Reverso"
+            "Deepl"
         ],
         note: [5, 4, 3, 5, 4, 4, 5, 4, 3, 5],
         inputJSON: [
@@ -41,8 +42,9 @@ const services = [
         name: "Génération d'images",
         description: "Création d'images à partir de descriptions textuelles",
         tags: [
-            "image",
-            "génération"
+            "Image",
+            "Génération"
+            "Création"
         ],
         note: [4, 5, 4, 5, 3, 4, 5, 4, 5, 4],
         inputJSON: [
@@ -54,9 +56,10 @@ const services = [
         name: "Consultant en marketing digital",
         description: "Stratégies de marketing en ligne pour entreprises",
         tags: [
-            "marketing",
-            "digital",
-            "consultant"
+            "Marketing",
+            "Digital",
+            "Consultant"
+            "Communication"
         ],
         note: [5, 3, 4, 5, 4, 5, 4, 3, 5, 4],
         inputJSON: []
@@ -66,10 +69,11 @@ const services = [
         name: "Créateur de maquettes web",
         description: "Conception de maquettes pour sites web",
         tags: [
-            "web",
-            "maquette",
-            "design",
-            "ui/ux"
+            "Web",
+            "Maquette",
+            "Design",
+            "UI/UX"
+            "Figma"
         ],
         note: [4, 5, 4, 3, 5, 4, 5, 4, 5, 4],
         inputJSON: [
@@ -81,11 +85,9 @@ const services = [
         name: "Designer UI/UX",
         description: "Création d'interfaces utilisateur intuitives",
         tags: [
-            "web",
-            "mobile",
-            "ui/ux",
-            "design",
-            "interface"
+            "UX/UI",
+            "Adobe",
+            "Figma",
         ],
         note: [5, 4, 5, 4, 3, 5, 4, 5, 4, 5],
         inputJSON: []
@@ -95,10 +97,12 @@ const services = [
         name: "Rédacteur web",
         description: "Rédaction de contenu optimisé pour le web",
         tags: [
-            "rédaction",
-            "web",
+            "Site internet",
+            "Blog",
+            "Web",
             "SEO",
-            "contenu"
+            "Formattage de texte"
+            "Rédactionnel"
         ],
         note: [4, 3, 5, 4, 5, 4, 3, 5, 4, 5],
         inputJSON: [
@@ -110,9 +114,9 @@ const services = [
         name: "Scribe de contenu",
         description: "IA spécialisée dans la rédaction de contenu",
         tags: [
-            "rédaction",
-            "contenu",
-            "génération"
+            "Rédaction",
+            "Contenu",
+            "Génération texte"
         ],
         note: [5, 4, 3, 5, 4, 5, 4, 3, 5, 4],
         inputJSON: [
@@ -124,10 +128,13 @@ const services = [
         name: "Développeur mobile",
         description: "Création d'applications mobiles pour iOS et Android",
         tags: [
-            "mobile",
-            "iOS",
+            "Apple"
             "Android",
-            "développement"
+            "iPhone",
+            "Samsung"
+            "Flutter",
+            "Android",
+            "React Native"
         ],
         note: [4, 5, 4, 3, 5, 4, 5, 4, 5, 3],
         inputJSON: []
@@ -137,10 +144,9 @@ const services = [
         name: "Monteur vidéo",
         description: "Montage et édition de vidéos professionnelles",
         tags: [
-            "vidéo",
-            "montage",
-            "édition",
-            "professionnel"
+            "Vidéo",
+            "Montage",
+            "Photoshop",
         ],
         note: [5, 4, 3, 5, 4, 5, 4, 5, 3, 4],
         inputJSON: []

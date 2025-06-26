@@ -15,6 +15,10 @@ export interface UpdateServiceDto {
   tags?: string[];
 }
 
+export interface SaveServiceDTO {
+
+}
+
 export class ServiceService {
   private serviceRepository: ServiceRepository;
 
@@ -41,6 +45,8 @@ export class ServiceService {
 
     return await this.serviceRepository.create(createServiceDto);
   }
+
+  
 
   async getAllServices(): Promise<IService[]> {
     return await this.serviceRepository.findAll();

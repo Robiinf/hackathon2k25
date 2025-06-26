@@ -31,10 +31,6 @@ function handleSubmit() {
   <div class="auth-container">
     <div class="auth-card">
       <div class="auth-header">
-        <div class="logo">
-          <h1>Talia</h1>
-        </div>
-
         <h1 class="auth-title">Se connecter</h1>
         <p class="auth-subtitle">
           Entrez vos identifiants pour accéder à votre compte

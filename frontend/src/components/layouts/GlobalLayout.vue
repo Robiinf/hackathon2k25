@@ -12,11 +12,12 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2023 Talia. Tous droits réservés.</p>
+    <p>&copy; {{ currentYear }} Talia. Tous droits réservés.</p>
   </footer>
 </template>
 
 <script lang="ts" setup>
+import { computed } from "vue";
 import Header from "../header/Header.vue";
 
 // Props pour personnaliser le layout
@@ -25,6 +26,10 @@ defineProps({
     type: String,
     default: "Les Bons Talents, Pour Les Bons Projets",
   },
+});
+
+const currentYear = computed(() => {
+  return new Date().getFullYear();
 });
 </script>
 
@@ -65,7 +70,7 @@ defineProps({
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: var(--color-bg-light, #fff3ec);
+  background-color: # fff3eb;
   border-top: 1px solid rgba(105, 58, 43, 0.1);
   text-align: center;
   font-size: 0.9rem;

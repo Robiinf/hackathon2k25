@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header-container">
       <div class="logo">
-        <h1>Talia</h1>
+        <img src="../../assets/talia_logo.png" alt="Logo Talia" />
       </div>
       <nav class="navigation">
         <ul class="nav-list">
@@ -29,8 +29,8 @@
 <script lang="ts" setup>
 const links = [
   { path: "/", label: "Accueil" },
-  { path: "/generateur", label: "Générateur" },
-  { path: "/exemples", label: "Exemples" },
+  { path: "/workflow-generator", label: "Générateur" },
+  { path: "/workflows", label: "Workflows" },
   { path: "/a-propos", label: "À propos" },
 ];
 </script>
@@ -59,16 +59,18 @@ const links = [
   justify-content: space-between;
 }
 
-.logo h1 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #693a2b;
-  margin: 0;
-  letter-spacing: -0.02em;
+.logo {
+  flex-shrink: 0;
+}
+
+.logo img {
+  height: 80px;
+  width: auto;
+  transition: transform 0.2s ease;
 }
 
 .navigation {
-  flex-grow: 1;
+  flex: 1;
   padding: 0 3rem;
 }
 

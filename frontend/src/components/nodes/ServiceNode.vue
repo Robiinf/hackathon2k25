@@ -21,6 +21,16 @@
     />
     <div class="node-header">
       <div class="node-order">{{ props.data.service.order }}</div>
+      <!-- Ajout des boutons d'action -->
+      <div class="node-actions">
+        <button
+          class="action-button delete-button"
+          @click.stop="handleDelete"
+          title="Supprimer ce nœud"
+        >
+          <Trash2 size="14" />
+        </button>
+      </div>
     </div>
     <div class="node-content">
       <div class="node-title">{{ props.data.service.jobTitle }}</div>
@@ -73,7 +83,7 @@
 
 <script setup lang="ts">
 import { Handle } from "@vue-flow/core";
-import { Bot as RobotIcon, User as UserIcon } from "lucide-vue-next";
+import { Bot as RobotIcon, Trash2, User as UserIcon } from "lucide-vue-next";
 import { defineEmits, defineProps } from "vue";
 
 const props = defineProps<{
@@ -89,11 +99,13 @@ const props = defineProps<{
     selectedService?: any;
     serviceParams?: any;
     onNodeClick?: (nodeId: string, services: any[]) => void;
+    onNodeDelete?: (nodeId: string) => void;
   };
 }>();
 
 const emit = defineEmits<{
   click: [nodeId: string, services: any[]];
+  delete: [nodeId: string];
 }>();
 
 // Gérer le clic sur le nœud
@@ -107,6 +119,20 @@ function handleNodeClick(event: MouseEvent) {
   // Appeler la fonction onNodeClick si elle existe
   if (props.data.onNodeClick) {
     props.data.onNodeClick(props.id, props.data.service.services || []);
+  }
+}
+
+// Gérer la suppression du nœud
+function handleDelete(event: MouseEvent) {
+  // Empêcher la propagation de l'événement
+  event.stopPropagation();
+
+  // Émettre l'événement delete
+  emit("delete", props.id);
+
+  // Appeler la fonction onNodeDelete si elle existe
+  if (props.data.onNodeDelete) {
+    props.data.onNodeDelete(props.id);
   }
 }
 
@@ -132,6 +158,7 @@ function openEditParams(event: MouseEvent) {
   overflow: hidden;
   transition: all 0.2s ease;
   cursor: pointer;
+  position: relative;
 }
 
 .custom-node:hover {
@@ -201,6 +228,11 @@ function openEditParams(event: MouseEvent) {
 .action-button:hover {
   background-color: rgba(195, 57, 17, 0.1);
   color: #c33911;
+}
+
+.delete-button:hover {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #f44336;
 }
 
 .node-content {
@@ -300,5 +332,21 @@ function openEditParams(event: MouseEvent) {
 
 .edit-icon:hover {
   color: #c33911;
+}
+
+/* Animation pour la suppression */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.node-delete-animation {
+  animation: fadeOut 0.3s forwards;
 }
 </style>
