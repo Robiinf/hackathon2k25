@@ -5,6 +5,14 @@ export enum ServiceType {
   PROVIDER = "provider",
 }
 
+export interface ServiceInput {
+  label: string;
+  type: 'string' | 'number' | 'boolean' | 'date' | 'select';
+  placeholder?: string;
+  required?: boolean;
+  options?: string[];
+}
+
 export interface IService extends Document {
   _id: string;
   type: ServiceType;
@@ -12,7 +20,7 @@ export interface IService extends Document {
   description: string;
   tags: string[];
   note: number[];
-  inputJSON: Record<string, any>;
+  inputJSON: ServiceInput[];
   outputJSON: Record<string, any>;
   createdAt: Date;
   updatedAt: Date;
@@ -50,7 +58,17 @@ const ServiceSchema: Schema = new Schema(
       },
     },
     inputJSON: {
-      type: Object,
+      type: [{
+        label: { type: String, required: true },
+        type: {
+          type: String,
+          enum: ['string', 'number', 'boolean', 'date', 'select'],
+          required: true,
+        },
+        placeholder: { type: String, default: "" },
+        required: { type: Boolean, default: false },
+        options: { type: [String], default: [] }, // Pour les champs de type 'select'&
+      }],
       required: true,
     },
     outputJSON: {

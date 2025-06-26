@@ -8,9 +8,7 @@ const routes = [
     { path: '/', component: HomePage },
     { path: '/register', component: RegisterPage },
     { path: '/login', component: LoginPage },
-    {
-        path: "/workflow", component: WorkflowPage
-    }
+    { path: "/workflow", component: WorkflowPage },
 ]
 
 const router = VueRouter.createRouter({
