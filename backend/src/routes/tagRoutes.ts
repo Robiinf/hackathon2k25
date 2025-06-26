@@ -5,6 +5,6 @@ const router = Router();
 const tagController = new TagController();
 
 // Routes principales
-router.get("/tags", tagController.getAllUniqueTags);
+router.get("/", tagController.getAllUniqueTags);
 
 export default router;

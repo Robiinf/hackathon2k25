@@ -6,65 +6,61 @@ import { VueFlow } from '@vue-flow/core'
 import SpecialNode  from "./SpecialNode.vue";
 
 const workflow = [
-  {
-    type: 'IA',
-    order: 1,
-    job: "writter",
-    params: { lang: 'fr' },
-    prompt: 'Rédige une invitation de mariage en français...'
-  },
-  {
-    type: 'IA',
-    order: 2,
-    job: 'translator',
-    params: { source_lang: 'fr', target_lang: 'en' },
-    prompt: 'Traduis ce texte en anglais...'
-  },
-  {
-    type: 'IA',
-    order: 2,
-    job: 'translator',
-    params: { source_lang: 'fr', target_lang: 'ja' },
-    prompt: 'Traduis ce texte en japonais...'
-  },
-  {
-    type: 'IA',
-    order: 2,
-    job: 'translator',
-    params: { source_lang: 'fr', target_lang: 'es' },
-    prompt: 'Traduis ce texte en espagnol...'
-  },
-  {
-    type: 'humain',
-    order: 3,
-    job: 'Validation finale multilingue',
-    params: { languages: ['fr', 'en', 'ja', 'es'] }
-  },
-  {
-    type: 'humain',
-    order: 4,
-    job: 'Validation finale multilingue',
-    params: { languages: ['fr', 'en', 'ja', 'es'] }
-  },
-  {
-    type: 'humain',
-    order: 4,
-    job: 'Validation finale multilingue',
-    params: { languages: ['fr', 'en', 'ja', 'es'] }
-  },
-  {
-    type: 'humain',
-    order: 4,
-    job: 'Validation finale multilingue',
-    params: { languages: ['fr', 'en', 'ja', 'es'] }
-  },
-  {
-    type: 'humain',
-    order: 5,
-    job: 'Validation finale multilingue',
-    params: { languages: ['fr', 'en', 'ja', 'es'] }
-  }
-]
+        {
+            "order": 1,
+            "tags": [
+                "rédaction",
+                "contenu"
+            ],
+            "type": "services",
+            "prompt": "Rédige une invitation de mariage en français pour un mariage qui aura lieu à Paris le 26 juin 2026. Sois créatif et élégant."
+        },
+        {
+            "order": 2,
+            "tags": [
+                "traducteur",
+                "langues"
+            ],
+            "type": "services",
+            "params": {
+                "langue_cible": "anglais"
+            },
+            "prompt": "Traduis l'invitation de mariage suivante en anglais : [texte_invitation_francaise]."
+        },
+        {
+            "order": 2,
+            "tags": [
+                "traducteur",
+                "langues"
+            ],
+            "type": "services",
+            "params": {
+                "langue_cible": "espagnol"
+            },
+            "prompt": "Traduis l'invitation de mariage suivante en espagnol : [texte_invitation_francaise]."
+        },
+        {
+            "order": 2,
+            "tags": [
+                "traducteur",
+                "langues"
+            ],
+            "type": "services",
+            "params": {
+                "langue_cible": "japonais"
+            },
+            "prompt": "Traduis l'invitation de mariage suivante en japonais : [texte_invitation_francaise]."
+        },
+        {
+            "order": 3,
+            "tags": [
+                "design",
+                "image"
+            ],
+            "type": "services",
+            "prompt": "Crée un design d'invitation de mariage élégant et moderne en utilisant les textes suivants : [texte_invitation_francaise], [texte_invitation_anglaise], [texte_invitation_espagnole], [texte_invitation_japonaise].  Assure-toi que le design est approprié pour un mariage à Paris."
+        }
+    ]
 
 const groupedByOrder = workflow.reduce((acc, step, index) => {
   if (!acc[step.order]) acc[step.order] = []

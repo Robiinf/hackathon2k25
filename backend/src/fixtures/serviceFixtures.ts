@@ -19,8 +19,8 @@ const services = [
       name: `Traducteur`,
       description: `Traduction de texte en toutes langues`,
       tags: [
-       "traducteur",
-         "langues",
+        "traducteur",
+        "langue",
       ],
       note: [5, 4, 3, 5, 4, 4, 5, 4, 3, 5],
     },
@@ -89,7 +89,6 @@ const services = [
         tags: [
             "rédaction",
             "contenu",
-            "IA",
             "génération"
         ],
         note: [5, 4, 3, 5, 4, 5, 4, 3, 5, 4],
