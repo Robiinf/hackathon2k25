@@ -3,6 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { connectDatabase } from "./config/database";
 import serviceRoutes from "./routes/serviceRoutes";
+import tagRoutes from "./routes/tagRoutes";
+import workflowRoutes from "./routes/workflowRoutes";
 
 dotenv.config();
 
@@ -36,8 +38,9 @@ app.get("/api/health", (req, res) => {
 });
 
 // Routes API
-app.use("/api", serviceRoutes);
-
+app.use("/api/services", serviceRoutes);
+app.use("/api/workflows", workflowRoutes); // Placeholder for workflow routes
+app.use("/api/tags", tagRoutes);
 // Middleware de gestion d'erreur 404
 app.use((req, res) => {
   res.status(404).json({

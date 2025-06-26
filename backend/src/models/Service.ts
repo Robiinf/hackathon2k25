@@ -51,11 +51,11 @@ const ServiceSchema: Schema = new Schema(
     },
     inputJSON: {
       type: Object,
-      required: false,
+      required: true,
     },
     outputJSON: {
       type: Object,
-      required: true,
+      required: false,
     },
   },
   {

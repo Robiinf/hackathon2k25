@@ -65,6 +65,13 @@ export class ServiceService {
     return await this.serviceRepository.findByTags(tags);
   }
 
+  async getServicesByTagsWithMatchPercentage(tags: string[]): Promise<IService[]> {
+    if (!tags || tags.length === 0) {
+      throw new Error("Au moins un tag doit être fourni");
+    }
+    return await this.serviceRepository.findByTagsWithMatchPercentage(tags);
+  }
+
   async updateService(
     id: string,
     updateServiceDto: UpdateServiceDto
@@ -135,6 +142,10 @@ export class ServiceService {
     const averageNote = await this.serviceRepository.getAverageNote(id);
 
     return { service, averageNote };
+  }
+
+  async getAllUniqueTags(): Promise<{ IA: string[]; human: string[] }> {
+    return await this.serviceRepository.getAllUniqueTags();
   }
 
   private validateServiceData(data: CreateServiceDto | UpdateServiceDto): void {

@@ -26,9 +26,11 @@ services:
       - ./backend/src:/app/src
     depends_on:
       - database
+    env_file:
+      - .env
 
   database:
-    container_name: database
+    container_name: database_hackathon
     image: mongo
     ports:
       - "27017:27017"

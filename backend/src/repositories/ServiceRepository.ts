@@ -22,6 +22,48 @@ export class ServiceRepository {
     return await Service.find({ tags: { $in: tags } }).sort({ createdAt: -1 });
   }
 
+  async findByTagsWithMatchPercentage(
+    searchTags: string[]
+  ): Promise<Array<any>> {
+    const services = await Service.find({ tags: { $in: searchTags } }).sort({
+      createdAt: -1,
+    });
+
+    return services.map((service) => {
+      const matchingTags = service.tags.filter((tag) =>
+        searchTags.some(
+          (searchTag) => searchTag.toLowerCase() === tag.toLowerCase()
+        )
+      );
+      const matchPercentage = Math.round(
+        (matchingTags.length / searchTags.length) * 100
+      );
+
+      // Calculer la moyenne des notes
+      const averageNote =
+        service.note.length > 0
+          ? Number(
+              (
+                service.note.reduce(
+                  (acc: number, note: number) => acc + note,
+                  0
+                ) / service.note.length
+              ).toFixed(2)
+            )
+          : null;
+
+      const serviceObject = service.toObject();
+      // Extraire toutes les propriétés sauf note
+      const { note, ...serviceWithoutNote } = serviceObject;
+
+      return {
+        ...serviceWithoutNote,
+        matchPercentage: `${matchPercentage}%`,
+        averageNote: averageNote,
+      };
+    });
+  }
+
   async update(
     id: string,
     updateData: Partial<IService>
@@ -70,5 +112,25 @@ export class ServiceRepository {
       0
     );
     return Number((sum / service.note.length).toFixed(2));
+  }
+
+  async getAllUniqueTags(): Promise<{ IA: string[]; human: string[] }> {
+    const services = await Service.find({}, { tags: 1, type: 1 });
+
+    const iaTags: string[] = [];
+    const humanTags: string[] = [];
+
+    services.forEach((service) => {
+      if (service.type === ServiceType.PROVIDER) {
+        humanTags.push(...service.tags);
+      } else {
+        iaTags.push(...service.tags);
+      }
+    });
+
+    return {
+      IA: [...new Set(iaTags)].sort(),
+      human: [...new Set(humanTags)].sort(),
+    };
   }
 }

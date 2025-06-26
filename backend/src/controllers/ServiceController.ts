@@ -179,11 +179,14 @@ export class ServiceController {
         .split(",")
         .map((tag) => tag.trim())
         .filter((tag) => tag.length > 0);
-      const services = await this.serviceService.getServicesByTags(tagArray);
+      const services =
+        await this.serviceService.getServicesByTagsWithMatchPercentage(
+          tagArray
+        );
 
       res.status(200).json({
         success: true,
-        message: "Services trouvés par tags",
+        message: "Services trouvés par tags avec pourcentage de match",
         data: services,
         count: services.length,
         tags: tagArray,
