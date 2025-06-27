@@ -333,12 +333,12 @@ async function handleWorkflowSave(
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
     // Générer un nom de workflow basé sur l'heure actuelle
     const randomLetters = Array.from({ length: 5 }, () => alphabet[Math.floor(Math.random() * alphabet.length)]).join('');
-    const workflowName = `Workflow ${randomLetters}`;
+    const workflowName = `Projet ${randomLetters}`;
 
 
     const workflowToSave = {
       name: workflowName, // Vous pourriez demander à l'utilisateur de donner un nom
-      description: "Workflow généré à partir du prompt",
+      description: "Projet généré automatiquement à partir du prompt",
       prompt: prompt.value,
       nodes: workflowData.map((step: any) => ({
         order: step.order,
