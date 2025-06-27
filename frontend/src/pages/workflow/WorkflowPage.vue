@@ -329,8 +329,15 @@ async function handleWorkflowSave(
   isSaving.value = true;
 
   try {
+
+    const alphabet = "abcdefghijklmnopqrstuvwxyz";
+    // Générer un nom de workflow basé sur l'heure actuelle
+    const randomLetters = Array.from({ length: 5 }, () => alphabet[Math.floor(Math.random() * alphabet.length)]).join('');
+    const workflowName = `Workflow ${randomLetters}`;
+
+
     const workflowToSave = {
-      name: "Workflow généré", // Vous pourriez demander à l'utilisateur de donner un nom
+      name: workflowName, // Vous pourriez demander à l'utilisateur de donner un nom
       description: "Workflow généré à partir du prompt",
       prompt: prompt.value,
       nodes: workflowData.map((step: any) => ({
@@ -376,18 +383,6 @@ function showToast(type: "success" | "error" | "info", message: string) {
   }, 5000);
 }
 
-onMounted(() => {
-  const urlPrompt = route.query.prompt?.toString();
-
-  if (!urlPrompt) {
-    error.value = "Aucun prompt spécifié dans l'URL";
-    loading.value = false;
-    return;
-  }
-
-  prompt.value = urlPrompt;
-  fetchWorkflowFromAPI();
-});
 </script>
 
 <template>

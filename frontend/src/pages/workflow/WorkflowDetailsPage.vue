@@ -57,7 +57,7 @@
         </section>
 
         <section class="content-section steps-section">
-          <h2 class="section-title">Étapes du workflow</h2>
+          <h2 class="section-title">Étapes du projet</h2>
           <div class="steps-list">
             <div
               v-for="(node, index) in sortedNodes"

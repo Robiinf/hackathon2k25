@@ -131,7 +131,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <GlobalLayout title="Mes workflows">
+  <GlobalLayout title="Mes projets">
     <div class="workflows-page">
       <div class="content-container">
         <div class="header-section">
@@ -140,7 +140,7 @@ onMounted(() => {
             @click="$router.push('/workflow-generator')"
           >
             <PlusCircle :size="18" class="btn-icon" />
-            Créer un nouveau workflow
+            Créer un nouveau projet
           </button>
         </div>
 
@@ -150,7 +150,7 @@ onMounted(() => {
             <div class="dot"></div>
             <div class="dot"></div>
           </div>
-          <p class="loading-text">Chargement de vos workflows...</p>
+          <p class="loading-text">Chargement de vos projets...</p>
         </div>
 
         <div v-else-if="error" class="error-state">
@@ -164,14 +164,14 @@ onMounted(() => {
 
         <div v-else-if="workflows.length === 0" class="empty-state">
           <FolderOpen :size="48" class="empty-icon" />
-          <h2 class="empty-title">Aucun workflow trouvé</h2>
-          <p class="empty-message">Vous n'avez pas encore créé de workflow.</p>
+          <h2 class="empty-title">Aucun projet trouvé</h2>
+          <p class="empty-message">Vous n'avez pas encore créé de projet.</p>
           <button
             class="create-button"
             @click="$router.push('/workflow-generator')"
           >
             <PlusCircle :size="18" class="btn-icon" />
-            Créer votre premier workflow
+            Créer votre premier projet
           </button>
         </div>
 
@@ -272,7 +272,7 @@ onMounted(() => {
         <AlertCircle class="confirm-icon" :size="24" />
         <h3>Confirmer la suppression</h3>
         <p>
-          Êtes-vous sûr de vouloir supprimer le workflow "{{
+          Êtes-vous sûr de vouloir supprimer le projet "{{
             workflowToDelete?.name
           }}" ?
           <br />

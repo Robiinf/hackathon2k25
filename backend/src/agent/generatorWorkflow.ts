@@ -69,6 +69,7 @@ export function generatorWorkflow(
 
       const jobs = response.map(async (item) => {
         const services = await serviceService.getServicesByTagsWithMatchPercentage(item.tags)
+        services.sort((a, b) => b.matchPercentage.toLocaleString().localeCompare(a.matchPercentage.toLocaleString()));
         return {
           ...item,
           services,

@@ -10,8 +10,8 @@ const services = [
             "Nodejs",
             "React",
             "Express",
-            "Developpeur"
-            "Clean-architecture"
+            "Developpeur",
+            "Clean-architecture",
             "Clean-code"
         ],
         note: [5, 4, 5, 3, 4, 5, 4, 5, 4, 5],
@@ -22,11 +22,11 @@ const services = [
         name: `Traducteur`,
         description: `Traduction de texte en toutes langues`,
         tags: [
-            "Traducteur"
-            "Langue"
-            "Traduction"
-            "Reverso"
-            "Deepl"
+            "Traducteur",
+            "Langue",
+            "Traduction",
+            "Reverso",
+            "Deepl",
         ],
         note: [5, 4, 3, 5, 4, 4, 5, 4, 3, 5],
         inputJSON: [
@@ -43,7 +43,6 @@ const services = [
         description: "Création d'images à partir de descriptions textuelles",
         tags: [
             "Image",
-            "Génération"
             "Création"
         ],
         note: [4, 5, 4, 5, 3, 4, 5, 4, 5, 4],
@@ -58,7 +57,7 @@ const services = [
         tags: [
             "Marketing",
             "Digital",
-            "Consultant"
+            "Consultant",
             "Communication"
         ],
         note: [5, 3, 4, 5, 4, 5, 4, 3, 5, 4],
@@ -72,7 +71,7 @@ const services = [
             "Web",
             "Maquette",
             "Design",
-            "UI/UX"
+            "UI/UX",
             "Figma"
         ],
         note: [4, 5, 4, 3, 5, 4, 5, 4, 5, 4],
@@ -92,6 +91,18 @@ const services = [
         note: [5, 4, 5, 4, 3, 5, 4, 5, 4, 5],
         inputJSON: []
     },
+     {
+        type: ServiceType.PROVIDER,
+        name: "Développeur web",
+        description: "Développement de sites web et applications",
+        tags: [
+            "Javascript",
+            "PHP",
+            "Python",
+        ],
+        note: [5, 4, 5, 4, 3, 5, 4, 5, 4, 5],
+        inputJSON: []
+    },
     {
         type: ServiceType.SERVICES,
         name: "Rédacteur web",
@@ -101,12 +112,24 @@ const services = [
             "Blog",
             "Web",
             "SEO",
-            "Formattage de texte"
+            "Formattage de texte",
             "Rédactionnel"
         ],
         note: [4, 3, 5, 4, 5, 4, 3, 5, 4, 5],
         inputJSON: [
             { label: "Style rédactionnel", type: "string", placeholder: "Professionnel, amical, etc." }
+        ]
+    },
+    {
+        type: ServiceType.PROVIDER,
+        name: "Rédacteur",
+        description: "Rédaction de contenu pour divers supports",
+        tags: [
+            "Ecrivain",
+            "Rédactionnel"
+        ],
+        note: [4, 3, 5, 4, 5, 4, 3, 5, 4, 5],
+        inputJSON: [
         ]
     },
     {
@@ -128,10 +151,10 @@ const services = [
         name: "Développeur mobile",
         description: "Création d'applications mobiles pour iOS et Android",
         tags: [
-            "Apple"
+            "Apple",
             "Android",
             "iPhone",
-            "Samsung"
+            "Samsung",
             "Flutter",
             "Android",
             "React Native"
@@ -150,7 +173,19 @@ const services = [
         ],
         note: [5, 4, 3, 5, 4, 5, 4, 5, 3, 4],
         inputJSON: []
-    }
+    },
+    {
+        type: ServiceType.PROVIDER,
+        name: "Chef de projet IT",
+        description: "Gestion de projets informatiques",
+        tags: [
+            "Gestion de projet",
+            "Agile",
+            "Scrum",
+        ],
+        note: [5, 4, 5, 4, 3, 5, 4, 5, 4, 5],
+        inputJSON: []
+    },
 ];
 
 // Fonction pour charger les fixtures

@@ -30,7 +30,7 @@
 const links = [
   { path: "/", label: "Accueil" },
   { path: "/workflow-generator", label: "Générateur" },
-  { path: "/workflows", label: "Workflows" },
+  { path: "/workflows", label: "Projets" },
   { path: "/a-propos", label: "À propos" },
 ];
 </script>

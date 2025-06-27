@@ -106,7 +106,7 @@ function prepareWorkflowForSave() {
 .workflow-diagram-container {
   width: 100vw;
   max-width: 1200px;
-  padding: 8rem;
+  padding: 2rem;
   margin-top: 2rem;
   margin-left: 0;
   margin-right: 0;

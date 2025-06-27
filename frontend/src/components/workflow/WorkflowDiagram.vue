@@ -464,18 +464,7 @@ defineExpose({
   </div>
   <div v-else class="workflow-container">
     <div class="workflow-actions">
-      <button
-        class="save-button"
-        @click="saveWorkflow"
-        :disabled="!isWorkflowComplete"
-        :title="
-          isWorkflowComplete
-            ? 'Sauvegarder le projet'
-            : 'Sélectionnez un service pour chaque étape'
-        "
-      >
-        Sauvegarder le projet
-      </button>
+     
       <div class="workflow-status">
         <span v-if="isWorkflowComplete" class="status-complete">
           <CheckIcon />

@@ -50,7 +50,7 @@ const currentYear = computed(() => {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   background-color: var(--color-primary, #c33911);
   color: white;
   text-align: center;

@@ -7,10 +7,10 @@
       <div class="hero-content animate-element">
         <h1 class="title">
           <span class="highlight">Simplifiez</span> vos projets avec des
-          workflows intelligents
+          projets intelligents
         </h1>
         <p class="subtitle animate-delay-1">
-          Automatisez la création de workflows personnalisés grâce à
+          Automatisez la création de projets personnalisés grâce à
           l'intelligence artificielle et optimisez votre productivité.
         </p>
         <div class="cta-buttons animate-delay-2">
@@ -30,7 +30,7 @@
           </div>
           <div class="stat-item">
             <span class="stat-number count-up">25K+</span>
-            <span class="stat-label">Workflows créés</span>
+            <span class="stat-label">Projets créés</span>
           </div>
           <div class="stat-item">
             <span class="stat-number count-up">4.9</span>
@@ -76,7 +76,7 @@
           Comment ça <span class="highlight">fonctionne</span>
         </h2>
         <p class="section-description">
-          Un processus simple en trois étapes pour créer vos workflows.
+          Un processus simple en trois étapes pour créer vos projets.
         </p>
       </div>
 
@@ -105,7 +105,7 @@
           </h2>
           <p class="demo-description">
             Entrez une description de votre projet et laissez notre IA créer un
-            workflow pour vous.
+            projet pour vous.
           </p>
 
           <div class="generator-page animate-fade-in">
@@ -190,7 +190,7 @@
           Prêt à optimiser votre <span class="highlight">productivité</span> ?
         </h2>
         <p class="cta-description">
-          Rejoignez des milliers d'utilisateurs qui créent déjà des workflows
+          Rejoignez des milliers d'utilisateurs qui créent déjà des projets
           intelligents avec notre plateforme.
         </p>
         <div class="cta-buttons animate-buttons">
@@ -215,7 +215,7 @@
           <div class="footer-links-column">
             <h4 class="footer-links-title">Produit</h4>
             <router-link to="/workflow-generator">Générateur</router-link>
-            <router-link to="/workflows">Mes workflows</router-link>
+            <router-link to="/workflows">Mes projets</router-link>
             <router-link to="/about">À propos</router-link>
           </div>
 
@@ -237,7 +237,7 @@
 
       <div class="footer-bottom">
         <p class="copyright">
-          © {{ new Date().getFullYear() }} Talia Workflow Generator. Tous droits
+          © {{ new Date().getFullYear() }} Talia. Tous droits
           réservés.
         </p>
         <div class="social-icons">
@@ -393,37 +393,37 @@ const features = [
     icon: Zap,
     title: "Génération IA",
     description:
-      "Créez des workflows complexes en quelques secondes grâce à notre système de génération par IA.",
+      "Créez des projets complexes en quelques secondes grâce à notre système de génération par IA.",
   },
   {
     icon: LayoutGrid,
     title: "Interface intuitive",
     description:
-      "Interface visuelle simple et intuitive pour organiser et modifier vos workflows.",
+      "Interface visuelle simple et intuitive pour organiser et modifier vos projets.",
   },
   {
     icon: Puzzle,
     title: "Modules personnalisables",
     description:
-      "Personnalisez chaque étape de votre workflow avec des paramètres spécifiques.",
+      "Personnalisez chaque étape de votre projet avec des paramètres spécifiques.",
   },
   {
     icon: Users,
     title: "Collaboration",
     description:
-      "Partagez vos workflows avec votre équipe pour améliorer la collaboration.",
+      "Partagez vos projets avec votre équipe pour améliorer la collaboration.",
   },
   {
     icon: Clock,
     title: "Gain de temps",
     description:
-      "Économisez des heures de planification en automatisant la création de vos workflows.",
+      "Économisez des heures de planification en automatisant la création de vos projets.",
   },
   {
     icon: Bot,
     title: "Services IA intégrés",
     description:
-      "Accédez à une bibliothèque de services IA pour enrichir vos workflows.",
+      "Accédez à une bibliothèque de services IA pour enrichir vos projets.",
   },
 ];
 
@@ -434,14 +434,14 @@ const steps = [
       "Saisissez simplement une description de votre projet dans notre interface de chat.",
   },
   {
-    title: "L'IA génère votre workflow",
+    title: "L'IA génère votre projet",
     description:
-      "Notre intelligence artificielle analyse votre description et crée un workflow adapté à vos besoins.",
+      "Notre intelligence artificielle analyse votre description et crée un projet adapté à vos besoins.",
   },
   {
     title: "Personnalisez et sauvegardez",
     description:
-      "Ajustez les étapes générées selon vos besoins spécifiques et sauvegardez votre workflow.",
+      "Ajustez les étapes générées selon vos besoins spécifiques et sauvegardez votre projet.",
   },
 ];
 
@@ -480,7 +480,7 @@ const examples = [
 
 const testimonials = [
   {
-    text: "Cette plateforme a révolutionné notre façon de planifier nos projets. L'IA génère des workflows pertinents en quelques secondes!",
+    text: "Cette plateforme a révolutionné notre façon de planifier nos projets. L'IA génère des projets pertinents en quelques secondes!",
     name: "Sophie Martin",
     role: "Chef de projet",
     rating: 5,
@@ -683,22 +683,15 @@ const testimonials = [
 }
 
 .hero {
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 10rem 8rem;
-  background: radial-gradient(
-      circle at top right,
-      rgba(195, 57, 17, 0.05),
-      transparent 80%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(105, 58, 43, 0.03),
-      transparent 70%
-    );
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(to bottom, var(--color-light), white);
   position: relative;
-  overflow: hidden;
 }
 
 .animate-element {
@@ -720,17 +713,20 @@ const testimonials = [
 }
 
 .hero-content {
-  flex: 1;
-  max-width: 600px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .title {
   font-size: 3.5rem;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  color: var(--color-secondary);
-  position: relative;
+  max-width: 800px;
 }
 
 .title::after {
@@ -748,34 +744,23 @@ const testimonials = [
 
 .subtitle {
   font-size: 1.25rem;
-  margin-bottom: 2rem;
   color: var(--color-text-light);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s forwards ease-out;
-  animation-delay: 0.2s;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .cta-buttons {
   display: flex;
   gap: 1rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s forwards ease-out;
-  animation-delay: 0.4s;
+  margin-top: 1rem;
+  justify-content: center;
 }
 
 .stats {
   display: flex;
-  gap: 2rem;
-  margin-top: 1rem;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s forwards ease-out;
-  animation-delay: 0.6s;
+  gap: 4rem;
+  margin-top: 3rem;
+  justify-content: center;
 }
 
 .stat-item {
