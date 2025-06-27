@@ -186,6 +186,58 @@ const services = [
         note: [5, 4, 5, 4, 3, 5, 4, 5, 4, 5],
         inputJSON: []
     },
+    {
+        type: ServiceType.PROVIDER,
+        name: "Plombier",
+        description: "Services de plomberie",
+        tags: [
+            "Plomberie",
+            "Bricolage",
+            "Maintenance",
+            "Réparation"
+        ],
+        note: [5, 4, 5, 4, 3, 5, 4, 5, 4, 5],
+        inputJSON: []
+    },
+    {
+        type: ServiceType.PROVIDER,
+        name: "Électricien",
+        description: "Services d'électricité",
+        tags: [
+            "Électricité",
+            "Bricolage",
+            "Maintenance",
+            "Réparation"
+        ],
+        note: [5, 4, 5, 4, 3, 5, 4, 5, 4, 5],
+        inputJSON: []
+    },
+     {
+        type: ServiceType.PROVIDER,
+        name: "Menuisier",
+        description: "Services de menuiserie",
+        tags: [
+            "Menuiserie",
+            "Bricolage",
+            "Maintenance",
+            "Réparation"
+        ],
+        note: [5, 4, 5, 4, 3, 5, 4, 5, 4, 5],
+        inputJSON: []
+    },
+    {
+        type: ServiceType.PROVIDER,
+        name: "Architecte",
+        description: "Services d'architecture",
+        tags: [
+            "Architecture",
+            "Bâtiment",
+            "Design de bâtiment",
+            "Dessin d'interieur"
+        ],
+        note: [5, 4, 5, 4, 3, 5, 4, 5, 4, 5],
+        inputJSON: []
+    },
 ];
 
 // Fonction pour charger les fixtures
