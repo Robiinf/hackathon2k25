@@ -511,7 +511,7 @@ defineExpose({
           :disabled="!isWorkflowComplete"
           :title="
             isWorkflowComplete
-              ? 'Sauvegarder le workflow'
+              ? 'Sauvegarder le projet'
               : 'Sélectionnez un service pour chaque étape'
           "
           class="save-button toolbar-button flex items-center gap-2 px-3 py-2 text-sm text-white bg-emerald-500 border border-emerald-500 rounded-md hover:bg-emerald-600"
