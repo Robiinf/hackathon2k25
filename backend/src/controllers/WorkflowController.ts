@@ -1,11 +1,19 @@
 import { Request, Response } from 'express';
 import { SaveWorkflowDto, WorkflowService } from '../services/WorkflowService';
+import { generatorWorkflow } from '../agent/generatorWorkflow';
+import { GeminiIA } from '../services/GeminiIA';
+import { ServiceService } from '../services/ServiceService';
+
+export interface CreateWorkflowDTO {
+  prompt: string;
+}
 
 export class WorkflowController {
     private workflowService: WorkflowService;
-
+    private serviceService: ServiceService;
     constructor() {
         this.workflowService = new WorkflowService();
+        this.serviceService = new ServiceService(); 
     }
 
     // POST /api/workflows
@@ -111,4 +119,18 @@ export class WorkflowController {
             });
         }
     };
+
+
+    public createWorkflow = async (req: Request, res: Response) => {
+        const createServiceDto: CreateWorkflowDTO = req.body;
+        const {prompt} = createServiceDto;
+        const tags = await this.serviceService.getAllUniqueTags()
+        const workflow = await generatorWorkflow(prompt, tags, new GeminiIA())
+
+        res.status(201).json({
+            success: true,
+            message: "Workflow created successfully",
+            data: workflow,
+        });
+    }
 }

@@ -460,14 +460,26 @@ defineExpose({
 
 <template>
   <div v-if="nodes.length === 0" class="empty-workflow">
-    <p>Chargement du workflow...</p>
+    <p>Chargement du étape...</p>
   </div>
   <div v-else class="workflow-container">
     <div class="workflow-actions">
+      <button
+        class="save-button"
+        @click="saveWorkflow"
+        :disabled="!isWorkflowComplete"
+        :title="
+          isWorkflowComplete
+            ? 'Sauvegarder le projet'
+            : 'Sélectionnez un service pour chaque étape'
+        "
+      >
+        Sauvegarder le projet
+      </button>
       <div class="workflow-status">
         <span v-if="isWorkflowComplete" class="status-complete">
           <CheckIcon />
-          Workflow complet
+          Étapes complet
         </span>
         <span v-else class="status-incomplete">
           <CircleAlertIcon />

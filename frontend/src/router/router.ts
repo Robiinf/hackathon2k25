@@ -15,7 +15,7 @@ const routes = [
     { path: "/workflow", component: WorkflowPage },
     { path: "/workflows", component: ListWorkflowsPage },
     { path: '/workflows/:id', component: WorkflowDetailsPage },
-    { path: '/workflow/:id', redirect: to => `/workflows/${to.params.id}` }
+    { path: '/workflow/:id', redirect: (to) => `/workflows/${to.params.id}` }
 ]
 
 

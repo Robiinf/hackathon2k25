@@ -78,10 +78,10 @@ async function fetchWorkflowFromAPI() {
   error.value = "";
 
   try {
-    /* const response = await fetch(
+    const response = await fetch(
       `${
         import.meta.env.VITE_API_URL || "http://localhost:3000"
-      }/api/workflows`,
+      }/api/workflows/generate`,
       {
         method: "POST",
         headers: {
@@ -96,8 +96,8 @@ async function fetchWorkflowFromAPI() {
     }
 
     const data = await response.json();
-    workflowData.value = data.data; */
-    workflowData.value = [
+    workflowData.value = data.data;
+    /* workflowData.value = [
       {
         jobTitle: "Cahier des charges initial",
         order: 1,
@@ -309,13 +309,13 @@ async function fetchWorkflowFromAPI() {
           },
         ],
       },
-    ];
+    ]; */
   } catch (err) {
-    console.error("Erreur lors de la génération du workflow:", err);
+    console.error("Erreur lors de la génération du projet:", err);
     error.value =
       err instanceof Error
         ? err.message
-        : "Erreur inconnue lors de la génération du workflow";
+        : "Erreur inconnue lors de la génération du projet";
   } finally {
     loading.value = false;
   }
@@ -392,7 +392,7 @@ onMounted(() => {
 
 <template>
   <GlobalLayout
-    :title="loading ? 'Génération du workflow...' : 'Visualisation du workflow'"
+    :title="loading ? 'Génération du projet...' : 'Visualisation de votre projet'"
   >
     <div v-if="loading" class="loading-container">
       <div class="loader">
@@ -400,10 +400,10 @@ onMounted(() => {
         <div class="dot"></div>
         <div class="dot"></div>
       </div>
-      <h2 class="loading-title">Génération du workflow en cours...</h2>
+      <h2 class="loading-title">Génération de votre projet en cours...</h2>
       <p class="loading-description">
         Veuillez patienter pendant que nous analysons votre demande et créons un
-        workflow adapté.
+        projet adapté.
       </p>
     </div>
 

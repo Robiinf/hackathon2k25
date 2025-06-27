@@ -86,7 +86,7 @@ onMounted(() => {
       Appuyez sur Entrée pour envoyer, Maj+Entrée pour sauter une ligne
     </div>
     <div class="hint generating" v-else>
-      <span class="generating-text">Génération du workflow en cours</span>
+      <span class="generating-text">Génération de l'étape en cours</span>
       <span class="generating-dots">
         <span class="dot"></span>
         <span class="dot"></span>

@@ -37,7 +37,7 @@ function saveWorkflowToAPI() {
   const workflowData = prepareWorkflowForSave();
 
   if (!workflowData) {
-    console.warn("Aucune donnée de workflow à sauvegarder");
+    console.warn("Aucune donnée de projet à sauvegarder");
     return;
   }
 
@@ -84,7 +84,7 @@ function prepareWorkflowForSave() {
       :class="{ ready: workflowReadyToSave }"
     >
       <span v-if="workflowReadyToSave">
-        Workflow prêt à être sauvegardé ✓
+        Étape prêt à être sauvegardé ✓
       </span>
       <span v-else>
         Veuillez sélectionner des services pour toutes les étapes
