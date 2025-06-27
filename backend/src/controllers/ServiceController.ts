@@ -3,6 +3,7 @@ import {
   ServiceService,
   CreateServiceDto,
   UpdateServiceDto,
+  SaveServiceDto,
 } from "../services/ServiceService";
 import { ServiceType } from "../models/Service";
 
@@ -35,6 +36,14 @@ export class ServiceController {
       });
     }
   };
+
+  saveService = async (req: Request, res: Response): Promise<void> => {
+    try {
+
+    } catch (error) {
+
+    }
+  }
 
   // GET /api/services
   getAllServices = async (req: Request, res: Response): Promise<void> => {

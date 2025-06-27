@@ -1,171 +1,166 @@
-import {IService, Service, ServiceType} from '../models/Service';
+import { Service, ServiceType } from '../models/Service';
 
 const services = [
     {
-      type: ServiceType.PROVIDER,
-      name: `Développeur javascript`,
-      description: `Je code`,
-      tags: [
-        "javascript",
-        "nodejs",
-        "react",
-        "express",
-        "developpeur"
-      ],
-      note: [5, 4, 5, 3, 4, 5, 4, 5, 4, 5],
-      inputJSON : {
-        source : "string",
-        target : "string"
-      }
+        type: ServiceType.PROVIDER,
+        name: `Développeur javascript`,
+        description: `Je code`,
+        tags: [
+            "Javascript",
+            "Nodejs",
+            "React",
+            "Express",
+            "Developpeur"
+            "Clean-architecture"
+            "Clean-code"
+        ],
+        note: [5, 4, 5, 3, 4, 5, 4, 5, 4, 5],
+        inputJSON: [],
     },
     {
-      type: ServiceType.SERVICES,
-      name: `Traducteur`,
-      description: `Traduction de texte en toutes langues`,
-      tags: [
-        "traducteur",
-        "langue",
-      ],
-      note: [5, 4, 3, 5, 4, 4, 5, 4, 3, 5],
-      inputJSON : {
-        source : "string",
-        target : "string"
-      }
+        type: ServiceType.SERVICES,
+        name: `Traducteur`,
+        description: `Traduction de texte en toutes langues`,
+        tags: [
+            "Traducteur"
+            "Langue"
+            "Traduction"
+            "Reverso"
+            "Deepl"
+        ],
+        note: [5, 4, 3, 5, 4, 4, 5, 4, 3, 5],
+        inputJSON: [
+            {
+                label: "Langue cible",
+                type: "select",
+                options: ["FR", "EN", "ES", "DE", "IT"]
+            }
+        ]
     },
     {
         type: ServiceType.SERVICES,
         name: "Génération d'images",
         description: "Création d'images à partir de descriptions textuelles",
         tags: [
-            "image",
-            "génération",
+            "Image",
+            "Génération"
+            "Création"
         ],
         note: [4, 5, 4, 5, 3, 4, 5, 4, 5, 4],
-        inputJSON: {
-            source : "string",
-            target : "string"
-        }
+        inputJSON: [
+            { label: "Style de l'image", type: "string", placeholder: "Ex. : vintage, cyberpunk..." }
+        ]
     },
     {
-        type: ServiceType.SERVICES,
-        name: "Génération d'images",
-        description: "Création d'images à partir de descriptions textuelles",
-        tags: [
-            "image",
-            "génération",
-        ],
-        note: [4, 5, 4, 5, 3, 4, 5, 4, 5, 4],
-        inputJSON: {
-            promptStyle : "string",
-        }
-    },
-    {
-        type : ServiceType.PROVIDER,
+        type: ServiceType.PROVIDER,
         name: "Consultant en marketing digital",
         description: "Stratégies de marketing en ligne pour entreprises",
         tags: [
-            "marketing",
-            "digital",
-            "consultant",
+            "Marketing",
+            "Digital",
+            "Consultant"
+            "Communication"
         ],
         note: [5, 3, 4, 5, 4, 5, 4, 3, 5, 4],
-        inputJSON : {
-        }
+        inputJSON: []
     },
     {
         type: ServiceType.SERVICES,
         name: "Créateur de maquettes web",
         description: "Conception de maquettes pour sites web",
         tags: [
-            "web",
-            "maquette",
-            "design",
-            "ui/ux"
+            "Web",
+            "Maquette",
+            "Design",
+            "UI/UX"
+            "Figma"
         ],
         note: [4, 5, 4, 3, 5, 4, 5, 4, 5, 4],
-        inputJSON : {
-            promptStyle : "string",
-        }
+        inputJSON: [
+            { label: "Style de maquette", type: "string", placeholder: "Minimaliste, coloré, etc." }
+        ]
     },
     {
         type: ServiceType.PROVIDER,
-        name : "Designer UI/UX",
+        name: "Designer UI/UX",
         description: "Création d'interfaces utilisateur intuitives",
         tags: [
-            "web",
-            "mobile",
-            "ui/ux",
-            "design",
-            "interface",
+            "UX/UI",
+            "Adobe",
+            "Figma",
         ],
         note: [5, 4, 5, 4, 3, 5, 4, 5, 4, 5],
-        inputJSON : {}
+        inputJSON: []
     },
     {
         type: ServiceType.SERVICES,
         name: "Rédacteur web",
         description: "Rédaction de contenu optimisé pour le web",
-        tags:[
-            "rédaction",
-            "web",
+        tags: [
+            "Site internet",
+            "Blog",
+            "Web",
             "SEO",
-            "contenu"
+            "Formattage de texte"
+            "Rédactionnel"
         ],
         note: [4, 3, 5, 4, 5, 4, 3, 5, 4, 5],
-        inputJSON : {
-            promptStyle : "string",
-        }
+        inputJSON: [
+            { label: "Style rédactionnel", type: "string", placeholder: "Professionnel, amical, etc." }
+        ]
     },
     {
         type: ServiceType.SERVICES,
         name: "Scribe de contenu",
-        description: "Ia spécilisée dans la rédaction de contenu",
+        description: "IA spécialisée dans la rédaction de contenu",
         tags: [
-            "rédaction",
-            "contenu",
-            "génération"
+            "Rédaction",
+            "Contenu",
+            "Génération texte"
         ],
         note: [5, 4, 3, 5, 4, 5, 4, 3, 5, 4],
-        inputJSON: {
-            promptStyle: "string",
-        }
+        inputJSON: [
+            { label: "Style de rédaction", type: "string", placeholder: "Formel, narratif..." }
+        ]
     },
     {
         type: ServiceType.PROVIDER,
         name: "Développeur mobile",
         description: "Création d'applications mobiles pour iOS et Android",
         tags: [
-            "mobile",
-            "iOS",
+            "Apple"
             "Android",
-            "développement"
+            "iPhone",
+            "Samsung"
+            "Flutter",
+            "Android",
+            "React Native"
         ],
         note: [4, 5, 4, 3, 5, 4, 5, 4, 5, 3],
-        inputJSON : {}
+        inputJSON: []
     },
     {
         type: ServiceType.PROVIDER,
         name: "Monteur vidéo",
         description: "Montage et édition de vidéos professionnelles",
         tags: [
-            "vidéo",
-            "montage",
-            "édition",
-            "professionnel"
+            "Vidéo",
+            "Montage",
+            "Photoshop",
         ],
         note: [5, 4, 3, 5, 4, 5, 4, 5, 3, 4],
-        inputJSON : {}
+        inputJSON: []
     }
-]
+];
 
 // Fonction pour charger les fixtures
 export async function loadServiceFixtures() {
-  try {
-    await Service.deleteMany({}); // Nettoie la collection avant d'insérer
-    await Service.insertMany(services);
-    console.log(`${services.length} services fixtures chargées avec succès`);
-  } catch (error) {
-    console.error('Erreur lors du chargement des fixtures:', error);
-    throw error;
-  }
+    try {
+        await Service.deleteMany({});
+        await Service.insertMany(services);
+        console.log(`${services.length} services fixtures chargées avec succès`);
+    } catch (error) {
+        console.error('Erreur lors du chargement des fixtures:', error);
+        throw error;
+    }
 }

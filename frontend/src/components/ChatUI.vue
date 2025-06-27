@@ -1,26 +1,25 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 
 const input = ref("");
 const loading = ref(false);
 const textareaRef = ref<HTMLTextAreaElement | null>(null);
+const router = useRouter();
 
-function handleSubmit() {
+async function handleSubmit() {
   const trimmed = input.value.trim();
   if (!trimmed) return;
 
   loading.value = true;
 
-  setTimeout(() => {
-    console.log("Recherche envoyée :", trimmed);
-    input.value = "";
-    loading.value = false;
+  router.push(`/workflow?prompt=${encodeURIComponent(trimmed)}`);
 
-    // Réinitialiser la hauteur après l'envoi
-    if (textareaRef.value) {
-      textareaRef.value.style.height = "auto";
-    }
-  }, 2000);
+  input.value = "";
+
+  if (textareaRef.value) {
+    textareaRef.value.style.height = "auto";
+  }
 }
 
 function adjustHeight(event: Event) {
@@ -83,8 +82,16 @@ onMounted(() => {
         </span>
       </button>
     </form>
-    <div class="hint">
+    <div class="hint" v-if="!loading">
       Appuyez sur Entrée pour envoyer, Maj+Entrée pour sauter une ligne
+    </div>
+    <div class="hint generating" v-else>
+      <span class="generating-text">Génération de l'étape en cours</span>
+      <span class="generating-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </span>
     </div>
   </div>
 </template>
@@ -247,6 +254,41 @@ onMounted(() => {
 
   .hint {
     font-size: 0.7rem;
+  }
+}
+
+.generating {
+  color: var(--color-primary, #c33911);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.generating-text {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.generating-dots {
+  display: flex;
+  gap: 3px;
+}
+
+.generating-dots .dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-primary, #c33911);
+  border-radius: 50%;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
   }
 }
 </style>
